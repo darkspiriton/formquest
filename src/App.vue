@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/construccion.jpg"> -->
-    <FormComponent msg="APP FORMULARIO"/>
+    <FormComponent/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,300");
 
 *,
@@ -123,7 +123,7 @@ label.light {
   width: 30px;
   display: inline-block;
   font-size: 0.8em;
-  margin-right: 4px;
+  margin-right: 10px;
   line-height: 30px;
   text-align: center;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -133,6 +133,17 @@ label.light {
 @media screen and (min-width: 480px) {
   form {
     max-width: 1000px;
+  }
+}
+
+.question-group {
+  margin-bottom: 20px;
+
+  &-title {
+    margin-bottom: 10px;
+  }
+  &-option {
+    list-style-type: lower-latin;
   }
 }
 </style>
