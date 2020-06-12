@@ -46,7 +46,7 @@
 
     <fieldset>
       <legend><span class="number">B</span>Nivel de conocimiento práctico de la tuberculosis:</legend>
-      <ol>
+      <ol start="21" >
         <div class="question-group" v-for="(question, index) in questionsB" :key="index">
           <li class="question-group-title">{{question.question}} </li>
           <ol>
@@ -225,287 +225,243 @@ export default {
         },
         {
           id: 8,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Qué haría si presenta tos con flema por más de 15 días?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Comprar medicamento de la farmacia más cercana.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Acudir al establecimiento de salud más cercano.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Descansar, abrigarse, alimentarse bien y luego ir a una clínica.',
               value: 1
             },
             {
-              text: 'Klebsiellapneumoniae.',
+              text: 'Consumir infusiones de hierbas medicinales contra la tos.',
               value: 0
             }
           ]
         },
         {
           id: 9,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Cómo se diagnostica la tuberculosis?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Examen de sangre.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Examen de orina.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Examen de esputo o baciloscopia, radiografía de tórax, prueba cutánea de la tuberculina.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 10,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿La prueba de esputo tiene algún costo económico?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Si, se paga.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'No, es gratuito.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Ninguna es correcta.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 11,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Dónde se consigue frascos para la prueba de esputo?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'En la Farmacia.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'En la Tienda.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'En el centro de salud o Puesto de Salud.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 12,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Qué datos debe tener el frasco de la prueba de esputo?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Nombre, apellido y la fecha en que se realiza la prueba.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Solo nombre.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Solo fecha.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 13,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Cuántas muestras de esputo se debe entregar al centro de salud?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Solo 1 muestra.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: '2 muestras.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Ninguna es correcta.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 14,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Cuáles son los factores de riesgo para desarrollar la tuberculosis?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Falta de ventilación e iluminación dentro de las viviendas y aulas.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Alimentación inadecuada, desnutrición, defensas bajas.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'a y b son correctas.',
               value: 1
             },
             {
-              text: 'Klebsiellapneumoniae.',
+              text: 'Ninguna es correcta.',
               value: 0
             }
           ]
         },
         {
           id: 15,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El tratamiento de la tuberculosis es?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Gratuito.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Lo asume la familia.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Ninguna es correcta.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 16,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Dónde se administra el tratamiento para la tuberculosis?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'En un policlínico.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'En el hogar.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'En el centro de salud de tu comunidad.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 17,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Quién administra el tratamiento para la tuberculosis?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Administrado por algún familiar en casa.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Administrado por el paciente en casa bajo indicación médica.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Administrado por un personal de salud bajo supervisión.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 18,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El tratamiento puede interrumpirse cuando los síntomas desaparecen?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Si, se puede interrumpir.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'No, se debe interrumpir.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Ninguna es correcta.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 19,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿La enfermedad se cura tomando remedios naturales o caseros?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Si, se cura.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'No, se cura.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Ninguna es correcta.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 20,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Cuáles son las complicaciones durante la enfermedad de la tuberculosis?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Resistencia a los medicamentos.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
+              text: 'Tuberculosis resistente.',
               value: 0
             },
             {
-              text: 'Bacilo de koch.',
+              text: 'Tuberculosis Extremadamente resistente.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         }
@@ -513,441 +469,281 @@ export default {
       questionsB: [
         {
           id: 1,
-          question: '¿Qué es la tuberculosis?',
+          question: '¿Se debe abrir las ventanas durante el día para que ingrese el aire y la luz del sol?',
           alternatives: [
             {
-              text: 'Enfermedad alérgica que se produce por el cambio de clima.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Es un resfrió no contagioso.',
+              text: 'Falso.',
               value: 0
-            },
-            {
-              text: 'Enfermedad contagiosa que ataca especialmente al hígado.',
-              value: 0
-            },
-            {
-              text: 'Enfermedad contagiosa que ataca especialmente a los pulmones.',
-              value: 1
             }
           ]
         },
         {
           id: 2,
-          question: '¿La tuberculosis es causado por un ... ?',
+          question: '¿La cocina debe ubicarse en un lugar cercano a una ventana o puerta para liberar el humo fuera de la vivienda?',
           alternatives: [
             {
-              text: 'Virus.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Bacteria.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Hongo.',
-              value: 0
-            },
-            {
-              text: 'Fungí.',
-              value: 0
             }
           ]
         },
         {
           id: 3,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe contar con recipientes adecuados para el manejo de residuos orgánicos e inorgánicos?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 4,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Los recipientes de residuos sólidos deben contener tapa?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 5,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse solo con agua?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 6,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse antes de manipular los alimentos?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 7,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse antes y después de atender a familiares enfermos en casa?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 8,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse después de usar los servicios higiénicos?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 9,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse después de manipular a los animales?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 10,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El lavado de manos debe hacerse después de tocar objetos o superficies contaminadas (Ej. residuos sólidos, dinero, pasamano de las unidades de transporte, etc.)?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 11,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe consumir solo 2 comidas principales al día: almuerzo y cena?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 12,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe consumir los grupos de alimentos: ¿Cereales carnes, verduras y grasas no saturadas?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 13,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe consumir solo 1 fruta al día?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 14,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe cubrir al momento de estornudar o toser?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 15,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debería llevar papel higiene en la mochila para cubrirse al toser o estornudar?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 16,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿De no tener papel higiénico deberá cubrirse al toser o estornudar con la flexura del antebrazo?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 17,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿El papel higiénico utilizado para estornudar o toser debe desecharse en el piso o dejarlo en cualquier lugar?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 18,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe lavar la mano después de estornudar o toser?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 19,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe realizar actividad física durante la semana?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         },
         {
           id: 20,
-          question: '¿El agente que origina la tuberculosis es llamada?',
+          question: '¿Se debe realizar como mínimo 1 hora de actividad física?',
           alternatives: [
             {
-              text: 'Salmonella.',
+              text: 'Verdadero.',
               value: 0
             },
             {
-              text: 'Mycobacterium.',
-              value: 0
-            },
-            {
-              text: 'Bacilo de koch.',
+              text: 'Falso.',
               value: 1
-            },
-            {
-              text: 'Klebsiellapneumoniae.',
-              value: 0
             }
           ]
         }

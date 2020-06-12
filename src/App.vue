@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/construccion.jpg"> -->
-    <FormComponent/>
+    <div id="nav">
+      <router-link to="/">Login</router-link> |
+      <router-link to="/dashboard">Dashboard</router-link> |
+      <router-link to="/form">Form</router-link> |
+      <router-link to="/result">Result</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import FormComponent from './components/FormComponent.vue'
 
 export default {
-  name: 'App',
-  components: {
-    FormComponent
-  }
+  name: 'App'
 }
 </script>
 
