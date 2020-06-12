@@ -3,7 +3,6 @@
     <form>
       <h1>Resultado</h1>
       <fieldset>
-      <legend>DATOS GENERALES</legend>
       <label for="name">Nombres y Apellidos del estudiante:</label>
       <input type="text" v-model="GET_USER_RESULT.name" name="user_name" disabled>
 
