@@ -791,7 +791,7 @@ export default {
           finalB = `PRACTICA INCORRECTA, nota: ${successB}`
           break
         case (successB < 20):
-          finalB = `PRACTICA CORRECT, nota: ${successB}`
+          finalB = `PRACTICA CORRECTA, nota: ${successB}`
           break
       }
 
