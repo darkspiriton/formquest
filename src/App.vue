@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Login</router-link> |
+      <router-link to="/create">Create</router-link> |
       <router-link to="/dashboard">Dashboard</router-link> |
       <router-link to="/form">Form</router-link> |
       <router-link to="/result">Result</router-link>
