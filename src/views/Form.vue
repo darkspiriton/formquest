@@ -61,11 +61,12 @@
       </ol>
     </fieldset>
 
-    <button @click.prevent="result()">Calificar</button>
+    <button @click.prevent="getResult()">Calificar</button>
   </form>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'FormComponent',
   data () {
@@ -751,13 +752,14 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['SET_RESULT_USER']),
     calculateA (id, value) {
       this.user.notasA[id] = value
     },
     calculateB (id, value) {
       this.user.notasB[id] = value
     },
-    result () {
+    getResult () {
       let successA = 0
       this.user.notasA.forEach(element => {
         successA = successA + element
@@ -766,16 +768,13 @@ export default {
       let finalA
       switch (true) {
         case (successA < 7):
-          finalA = `Conocimiento bajo, nota: ${successA}`
-          alert(finalA)
+          finalA = `CONOCIMIENTO BAJO, nota: ${successA}`
           break
         case (successA < 15):
-          finalA = `Conocimiento medio, nota: ${successA}`
-          alert(finalA)
+          finalA = `CONOCIMIENTO MEDIO, nota: ${successA}`
           break
         case (successA < 20):
-          finalA = `Conocimiento alto, nota: ${successA}`
-          alert(finalA)
+          finalA = `CONOCIMIENTO ALTO, nota: ${successA}`
           break
       }
 
@@ -789,18 +788,17 @@ export default {
       let finalB
       switch (true) {
         case (successB < 11):
-          finalB = `Practica incorrecta, nota: ${successB}`
-          alert(finalB)
+          finalB = `PRACTICA INCORRECTA, nota: ${successB}`
           break
         case (successB < 20):
-          finalB = `Practica correcta, nota: ${successB}`
-          alert(finalB)
+          finalB = `PRACTICA CORRECT, nota: ${successB}`
           break
       }
 
       this.user.finalB = finalB
 
-      console.log(this.user)
+      this.$store.commit('SET_RESULT_USER', this.user)
+      this.$router.push('/result')
     }
   }
 

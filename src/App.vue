@@ -1,20 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Login</router-link> |
-      <router-link to="/create">Create</router-link> |
-      <router-link to="/dashboard">Dashboard</router-link> |
-      <router-link to="/form">Form</router-link> |
-      <router-link to="/result">Result</router-link>
+      <router-link v-if="!isLogged" to="/">Login |</router-link>
+      <router-link v-if="!isLogged" to="/create">Create</router-link>
+      <router-link v-if="isLogged" to="/dashboard">Inicio |</router-link>
+      <!-- <router-link v-if="isLogged" to="/form">Form |</router-link> -->
+      <a href="·" v-if="isLogged" @click.prevent="logout">Desconectarse</a>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-
+import { mapState, mapMutations } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  computed: mapState(['isLogged']),
+  methods: {
+    ...mapMutations(['SET_LOGOUT_USER']),
+    logout () {
+      this.$store.commit('SET_LOGOUT_USER')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
