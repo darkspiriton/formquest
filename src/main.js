@@ -63,7 +63,7 @@ const store = new Vuex.Store({
       try {
         var id = firebase.database().ref().child('users').push().key
         window.database.ref(`users/${id}`).set({
-          user: user.user,
+          user: user.user.toLowerCase(),
           name: user.name,
           age: user.age,
           grade: user.grade,

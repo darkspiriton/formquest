@@ -197,7 +197,7 @@ tbody tr:hover {
 .column7 {
   width: 222px;
   text-align: right;
-  padding-right: 20px;
+  // padding-right: 20px;
 }
 
 @media screen and (max-width: 992px) {
@@ -256,6 +256,7 @@ tbody tr:hover {
 
   .column4,
   .column5,
+  .column7,
   .column6 {
     text-align: left;
   }
@@ -263,6 +264,7 @@ tbody tr:hover {
   .column4,
   .column5,
   .column6,
+  .column7,
   .column1,
   .column2,
   .column3 {

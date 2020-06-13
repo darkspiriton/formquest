@@ -57,7 +57,7 @@ export default {
       }
     },
     async getUsers (query) {
-      const response = await window.database.ref().child('users').orderByChild('user').equalTo(query).once('value')
+      const response = await window.database.ref().child('users').orderByChild('user').equalTo(query.toLowerCase()).once('value')
       let users = null
       if (response.val() !== null) {
         users = Object.values(response.val())

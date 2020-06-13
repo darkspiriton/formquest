@@ -5,7 +5,7 @@
       <router-link v-if="!isLogged" to="/create">Crear Usuario 📖</router-link>
       <router-link v-if="isLogged" to="/dashboard">Inicio</router-link>
       <router-link v-if="isLogged && GET_USER_ADMIN" to="/list">Reporte</router-link>
-      <a href="#" v-if="isLogged" @click.prevent="logout">Desconectarse 💣 {{GET_USER.user}}</a>
+      <a href="#" v-if="isLogged" @click.prevent="logout">Salir 💣 {{GET_USER.user}}</a>
     </div>
     <router-view/>
   </div>
@@ -43,7 +43,7 @@ export default {
   justify-content: flex-end;
   margin: auto;
   max-width: 1000px;
-  font-size: 18px;
+  font-size: 12px;
   background: #384047;
   min-height: 40px;
   a {
