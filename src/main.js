@@ -28,13 +28,15 @@ Vue.config.productionTip = false
 const store = new Vuex.Store({
   state: {
     isLogged: false,
+    isAdmin: false,
     user: null,
     result: null
   },
   getters: {
     GET_USER_LOGGED: state => state.isLogged,
     GET_USER: state => state.user,
-    GET_USER_RESULT: state => state.result
+    GET_USER_RESULT: state => state.result,
+    GET_USER_ADMIN: state => state.isAdmin
   },
   mutations: {
     increment (state) {
@@ -48,6 +50,9 @@ const store = new Vuex.Store({
     },
     SET_USER_DATA (state, user) {
       state.user = user
+    },
+    SET_SUPER_ADMIN (state, status) {
+      state.isAdmin = status
     },
     SET_RESULT_USER (state, result) {
       state.result = result

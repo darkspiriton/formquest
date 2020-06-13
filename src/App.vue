@@ -4,7 +4,7 @@
       <router-link v-if="!isLogged" to="/">Ingresar</router-link>
       <router-link v-if="!isLogged" to="/create">Crear Usuario 📖</router-link>
       <router-link v-if="isLogged" to="/dashboard">Inicio</router-link>
-      <router-link v-if="isLogged && isSuperAdmin" to="/dashboard">Reportes</router-link>
+      <router-link v-if="isLogged && GET_USER_ADMIN" to="/list">Reporte</router-link>
       <a href="#" v-if="isLogged" @click.prevent="logout">Desconectarse 💣 {{GET_USER.user}}</a>
     </div>
     <router-view/>
@@ -17,12 +17,13 @@ export default {
   name: 'App',
   computed: {
     ...mapState(['isLogged']),
-    ...mapGetters(['GET_USER'])
+    ...mapGetters(['GET_USER', 'GET_USER_ADMIN'])
   },
   methods: {
     ...mapMutations(['SET_LOGOUT_USER']),
     logout () {
       this.$store.commit('SET_LOGOUT_USER')
+      this.$store.commit('SET_SUPER_ADMIN', false)
       this.$router.push('/')
     }
   }

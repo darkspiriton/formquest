@@ -42,7 +42,9 @@ export default {
           }
         }
         if (isValid) {
+          const isAdmin = userData.admin === true
           this.$store.commit('SET_LOGIN_USER')
+          this.$store.commit('SET_SUPER_ADMIN', isAdmin)
           this.$store.commit('SET_USER_DATA', userData)
           this.$router.push('/dashboard')
         } else {
