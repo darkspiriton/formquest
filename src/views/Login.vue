@@ -11,7 +11,7 @@
           <li> {{textError}} </li>
         </ul>
       </fieldset>
-      <button @click.prevent="login()">Ingresar</button>
+      <button @click.prevent="login()" :disabled="isLoading">Ingresar</button>
     </form>
   </div>
 </template>
@@ -24,12 +24,17 @@ export default {
       user: null,
       pass: null,
       hasError: false,
-      textError: null
+      textError: null,
+      isLoading: false
     }
   },
   methods: {
     ...mapMutations(['SET_LOGIN_USER', 'SET_USER_DATA']),
     async login () {
+      if (this.isLoading) {
+        return
+      }
+      this.isLoading = true
       let isValid = false
       const users = await this.getUsers(this.user)
       if (users) {
@@ -55,8 +60,10 @@ export default {
         this.hasError = true
         this.textError = 'Usuario no registrado'
       }
+      this.isLoading = false
     },
     async getUsers (query) {
+      if (query === null) return null
       const response = await window.database.ref().child('users').orderByChild('user').equalTo(query.toLowerCase()).once('value')
       let users = null
       if (response.val() !== null) {

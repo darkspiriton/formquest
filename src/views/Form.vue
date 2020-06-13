@@ -64,7 +64,7 @@
       </ol>
     </fieldset>
 
-    <button @click.prevent="getResult()">Calificar</button>
+    <button @click.prevent="getResult()" :disabled="isLoading">Calificar</button>
   </form>
 </template>
 
@@ -82,6 +82,7 @@ export default {
         notaA: null,
         notaB: null
       },
+      isLoading: false,
       questionsA: [
         {
           id: 1,
@@ -773,6 +774,7 @@ export default {
         window.swal('Preguntas Incompletas', 'Porfavor, responda todas las preguntas.', 'error')
         return
       }
+      this.isLoading = true
       let successA = 0
       this.result.puntosA.forEach(element => {
         successA = successA + element
@@ -828,6 +830,7 @@ export default {
         notaB: this.result.notaB
       }
       await this.$store.dispatch('SAVE_RESULT', save)
+      this.isLoading = false
       this.$router.push('/result')
     }
   }

@@ -37,9 +37,11 @@
 
       <label for="age">Confirmar Contraseña:</label>
       <input type="password" v-model="passNewRe" name="user_pass_re">
-      <div v-if="hasError">Error</div>
+      <ul class="error" v-if="hasError">
+          <li> Complete todos los datos o verifique que ambas contraseñas sean iguales </li>
+        </ul>
     </fieldset>
-    <button @click.prevent="createUser()">Crear Usuario</button>
+    <button @click.prevent="createUser()" :disabled="isLoading">Crear Usuario</button>
   </form>
 </template>
 
@@ -59,13 +61,18 @@ export default {
       },
       passNew: null,
       passNewRe: null,
-      hasError: false
+      hasError: false,
+      isLoading: false
     }
   },
   methods: {
     ...mapActions(['SAVE_USER']),
     async createUser () {
-      const isValid = this.isValidPassword(this.user, this.passNew, this.passNewRe)
+      if (this.isLoading) {
+        return
+      }
+      this.isLoading = true
+      const isValid = this.isValidUser(this.user, this.passNew, this.passNewRe)
       if (isValid) {
         this.user.pass = this.passNew
         await this.$store.dispatch('SAVE_USER', this.user)
@@ -73,9 +80,15 @@ export default {
       } else {
         this.hasError = true
       }
+      this.isLoading = false
     },
-    isValidPassword (user, firstPass, secondPass) {
-      return firstPass !== null & firstPass === secondPass
+    isValidUser (user, firstPass, secondPass) {
+      const isValidPass = firstPass !== null & firstPass === secondPass
+      let isValidUser = true
+      for (const [key, value] of Object.entries(this.user)) {
+        if (key !== 'pass' && value === null) isValidUser = false
+      }
+      return isValidPass && isValidUser
     }
   }
 }

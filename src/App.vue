@@ -136,6 +136,9 @@ button {
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
   margin-bottom: 10px;
+  &:disabled{
+    background: #3ac162;
+  }
 }
 
 fieldset {
