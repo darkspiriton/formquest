@@ -216,7 +216,7 @@ tbody tr:hover {
   }
   table tbody tr td {
     padding-left: 40% !important;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
   }
   table tbody tr td:last-child {
     margin-bottom: 0;
@@ -229,7 +229,7 @@ tbody tr:hover {
     font-weight: unset;
     position: absolute;
     width: 40%;
-    left: 30px;
+    left: 20px;
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
