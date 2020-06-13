@@ -768,11 +768,11 @@ export default {
       return this.result.puntosA.length === 21 && this.result.puntosB.length === 21
     },
     async getResult () {
-      // const isValid = this.isValidToEvaluate()
-      // if (!isValid) {
-      //   window.swal('Preguntas Incompletas', 'Porfavor, responda todas las preguntas.', 'error')
-      //   return
-      // }
+      const isValid = this.isValidToEvaluate()
+      if (!isValid) {
+        window.swal('Preguntas Incompletas', 'Porfavor, responda todas las preguntas.', 'error')
+        return
+      }
       let successA = 0
       this.result.puntosA.forEach(element => {
         successA = successA + element
