@@ -5,25 +5,28 @@
 
     <fieldset>
       <!-- <legend>DATOS GENERALES</legend> -->
+      <label for="name">Usuario:</label>
+      <input type="text" v-model="user.user" name="user">
+
       <label for="name">Nombres y Apellidos:</label>
       <input type="text" v-model="user.name" name="user_name">
-
-      <label for="age">Grado y Seccion:</label>
-      <input type="text" v-model="user.grade" name="user_grade">
 
       <label for="age">Edad:</label>
       <input type="number" v-model="user.age" name="user_age">
 
+      <label for="age">Grado y Sección:</label>
+      <input type="text" v-model="user.grade" name="user_grade">
+
       <label for="gender" >Sexo:</label>
       <select name="gender" v-model="user.gender">
-          <option value="" disabled selected hidden>Selecciona tu opcion</option>
+          <option value="" disabled selected hidden>Selecciona tu opción</option>
           <option value="masculino">Masculino</option>
           <option value="femenino">Femenino</option>
       </select>
 
       <label for="procedencia">Lugar de procedencia:</label>
       <select name="procedencia" v-model="user.origen">
-          <option value="" disabled selected hidden>Selecciona tu opcion</option>
+          <option value="" disabled selected hidden>Selecciona tu opción</option>
           <option value="costa">Costa</option>
           <option value="sierra">Sierra</option>
           <option value="selva">Selva</option>
@@ -36,21 +39,22 @@
       <input type="password" v-model="passNewRe" name="user_pass_re">
       <div v-if="hasError">Error</div>
     </fieldset>
-    <button @click.prevent="createUser()">Crear Cuenta</button>
+    <button @click.prevent="createUser()">Crear Usuario</button>
   </form>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
       user: {
+        user: null,
         name: null,
         age: null,
         grade: null,
-        gender: null,
-        origen: null,
+        gender: '',
+        origen: '',
         pass: null
       },
       passNew: null,
@@ -59,12 +63,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['SET_NEW_USER']),
-    createUser () {
+    ...mapActions(['SAVE_USER']),
+    async createUser () {
       const isValid = this.isValidPassword(this.user, this.passNew, this.passNewRe)
       if (isValid) {
         this.user.pass = this.passNew
-        this.$store.commit('SET_NEW_USER', this.user)
+        await this.$store.dispatch('SAVE_USER', this.user)
         this.$router.push('/')
       } else {
         this.hasError = true

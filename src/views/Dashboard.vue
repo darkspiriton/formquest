@@ -1,7 +1,7 @@
 <template>
   <form>
       <h1>“Fortaleciendo mi conocimiento, prevengo la tuberculosis”</h1>
-      <fieldset>
+      <fieldset class="intro">
         <p>Estudiantes del Colegio Ramiro Priale Priale, le solicitamos de su participación ante este proyecto de tesis para saber cuánto conocen sobre la tuberculosis pulmonar y la medida preventiva que tienen ante ello, los resultados que se obtengan será de mucha ayuda para enfatizar ante este tema. Les pido sinceridad en sus respuestas, le agradecemos su participación.</p>
       </fieldset>
       <div class="video">
@@ -22,6 +22,12 @@ export default {
 </script>>
 
 <style lang="scss" scopped>
+.intro {
+  p {
+    text-align: center;
+    font-size: 20px;;
+  }
+}
 .video {
   margin-bottom: 50px;
   display: flex;

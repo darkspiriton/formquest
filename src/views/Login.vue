@@ -7,38 +7,61 @@
         <input type="text" name="user_name" v-model="user">
         <label for="age">Contraseña:</label>
         <input type="password" name="user_pass" v-model="pass">
-        <div v-if="hasError">Error</div>
+        <ul class="error" v-if="hasError">
+          <li> {{textError}} </li>
+        </ul>
       </fieldset>
-      <button @click.prevent="login()">login</button>
+      <button @click.prevent="login()">Ingresar</button>
     </form>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
       user: null,
       pass: null,
-      hasError: false
+      hasError: false,
+      textError: null
     }
   },
   methods: {
-    ...mapMutations(['SET_LOGIN_USER']),
-    login () {
-      const exist = this.users.filter(user => {
-        return user.name === this.user && user.pass === this.pass
-      })
-      const isValid = exist.length > 0
-      if (isValid) {
-        this.$store.commit('SET_LOGIN_USER')
-        this.$router.push('/dashboard')
+    ...mapMutations(['SET_LOGIN_USER', 'SET_USER_DATA']),
+    async login () {
+      let isValid = false
+      const users = await this.getUsers(this.user)
+      if (users) {
+        let userData = null
+        for (const value of users) {
+          isValid = value.pass === this.pass
+          if (isValid) {
+            userData = value
+            break
+          }
+        }
+        if (isValid) {
+          this.$store.commit('SET_LOGIN_USER')
+          this.$store.commit('SET_USER_DATA', userData)
+          this.$router.push('/dashboard')
+        } else {
+          this.hasError = true
+          this.textError = 'Contraseña invalida'
+        }
       } else {
         this.hasError = true
+        this.textError = 'Usuario no registrado'
       }
+    },
+    async getUsers (query) {
+      const response = await window.database.ref().child('users').orderByChild('user').equalTo(query).once('value')
+      let users = null
+      if (response.val() !== null) {
+        users = Object.values(response.val())
+      }
+      return users
     }
-  },
-  computed: mapState(['users'])
+  }
 }
 </script>>

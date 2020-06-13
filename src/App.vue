@@ -1,21 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link v-if="!isLogged" to="/">Login |</router-link>
-      <router-link v-if="!isLogged" to="/create">Create</router-link>
-      <router-link v-if="isLogged" to="/dashboard">Inicio |</router-link>
-      <!-- <router-link v-if="isLogged" to="/form">Form |</router-link> -->
-      <a href="·" v-if="isLogged" @click.prevent="logout">Desconectarse</a>
+    <div class="menu">
+      <router-link v-if="!isLogged" to="/">Ingresar</router-link>
+      <router-link v-if="!isLogged" to="/create">Crear Usuario 📖</router-link>
+      <router-link v-if="isLogged" to="/dashboard">Inicio</router-link>
+      <router-link v-if="isLogged && isSuperAdmin" to="/dashboard">Reportes</router-link>
+      <a href="#" v-if="isLogged" @click.prevent="logout">Desconectarse 💣 {{GET_USER.user}}</a>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
   name: 'App',
-  computed: mapState(['isLogged']),
+  computed: {
+    ...mapState(['isLogged']),
+    ...mapGetters(['GET_USER'])
+  },
   methods: {
     ...mapMutations(['SET_LOGOUT_USER']),
     logout () {
@@ -28,6 +31,34 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,300");
+
+.error {
+  color: red;
+  font-size: 15px;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  max-width: 1000px;
+  font-size: 18px;
+  background: #384047;
+  min-height: 40px;
+  a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5px 0 5px;
+    color: white;
+    margin-right: 20px;
+    &:hover {
+      background: #f4f7f8;
+      color: #384047;
+    }
+  }
+}
 
 *,
 *:before,
@@ -43,8 +74,8 @@ body {
 }
 
 form {
-  margin: 10px auto;
-  padding: 10px 20px;
+  margin: auto;
+  padding: 30px 20px;
   background: #f4f7f8;
   border-radius: 8px;
 }

@@ -6,20 +6,23 @@
     <fieldset>
       <legend>DATOS GENERALES</legend>
       <label for="name">Nombres y Apellidos del estudiante:</label>
-      <input type="text" v-model="user.name" name="user_name">
+      <input type="text" v-model="GET_USER.name" name="user_name" disabled>
 
       <label for="age">Edad:</label>
-      <input type="number" v-model="user.age" name="user_age">
+      <input type="number" v-model="GET_USER.age" name="user_age" disabled>
+
+      <label for="age">Grado y Sección:</label>
+      <input type="text" v-model="GET_USER.grade" name="user_grade" disabled>
 
       <label for="gender" >Sexo:</label>
-      <select name="gender" v-model="user.gender">
+      <select name="gender" v-model="GET_USER.gender" disabled>
           <option value="" disabled selected hidden>Selecciona tu opcion</option>
           <option value="masculino">Masculino</option>
           <option value="femenino">Femenino</option>
       </select>
 
       <label for="procedencia">Lugar de procedencia:</label>
-      <select name="procedencia" v-model="user.origen">
+      <select name="procedencia" v-model="GET_USER.origen" disabled>
           <option value="" disabled selected hidden>Selecciona tu opcion</option>
           <option value="costa">Costa</option>
           <option value="sierra">Sierra</option>
@@ -66,20 +69,18 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 export default {
   name: 'FormComponent',
   data () {
     return {
-      user: {
-        name: null,
-        age: null,
-        gender: '',
-        origen: '',
-        notasA: [],
-        notasB: [],
+      result: {
+        puntosA: [],
+        puntosB: [],
         finalA: null,
-        finalB: null
+        finalB: null,
+        notaA: null,
+        notaB: null
       },
       questionsA: [
         {
@@ -234,11 +235,11 @@ export default {
             },
             {
               text: 'Acudir al establecimiento de salud más cercano.',
-              value: 0
+              value: 1
             },
             {
               text: 'Descansar, abrigarse, alimentarse bien y luego ir a una clínica.',
-              value: 1
+              value: 0
             },
             {
               text: 'Consumir infusiones de hierbas medicinales contra la tos.',
@@ -274,11 +275,11 @@ export default {
             },
             {
               text: 'No, es gratuito.',
-              value: 0
+              value: 1
             },
             {
               text: 'Ninguna es correcta.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -306,7 +307,7 @@ export default {
           alternatives: [
             {
               text: 'Nombre, apellido y la fecha en que se realiza la prueba.',
-              value: 0
+              value: 1
             },
             {
               text: 'Solo nombre.',
@@ -314,7 +315,7 @@ export default {
             },
             {
               text: 'Solo fecha.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -328,11 +329,11 @@ export default {
             },
             {
               text: '2 muestras.',
-              value: 0
+              value: 1
             },
             {
               text: 'Ninguna es correcta.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -346,11 +347,11 @@ export default {
             },
             {
               text: 'Alimentación inadecuada, desnutrición, defensas bajas.',
-              value: 0
+              value: 1
             },
             {
               text: 'a y b son correctas.',
-              value: 1
+              value: 0
             },
             {
               text: 'Ninguna es correcta.',
@@ -364,7 +365,7 @@ export default {
           alternatives: [
             {
               text: 'Gratuito.',
-              value: 0
+              value: 1
             },
             {
               text: 'Lo asume la familia.',
@@ -372,7 +373,7 @@ export default {
             },
             {
               text: 'Ninguna es correcta.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -422,11 +423,11 @@ export default {
             },
             {
               text: 'No, se debe interrumpir.',
-              value: 0
+              value: 1
             },
             {
               text: 'Ninguna es correcta.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -440,11 +441,11 @@ export default {
             },
             {
               text: 'No, se cura.',
-              value: 0
+              value: 1
             },
             {
               text: 'Ninguna es correcta.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -458,11 +459,11 @@ export default {
             },
             {
               text: 'Tuberculosis resistente.',
-              value: 0
+              value: 1
             },
             {
               text: 'Tuberculosis Extremadamente resistente.',
-              value: 1
+              value: 0
             }
           ]
         }
@@ -474,7 +475,7 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
@@ -488,11 +489,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -502,11 +503,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -516,11 +517,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -544,11 +545,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -558,11 +559,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -572,11 +573,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -586,11 +587,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -600,11 +601,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -628,11 +629,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -656,11 +657,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -670,11 +671,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -684,11 +685,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -712,11 +713,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -726,11 +727,11 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         },
@@ -740,69 +741,96 @@ export default {
           alternatives: [
             {
               text: 'Verdadero.',
-              value: 0
+              value: 1
             },
             {
               text: 'Falso.',
-              value: 1
+              value: 0
             }
           ]
         }
       ]
     }
   },
+  computed: {
+    ...mapGetters(['GET_USER'])
+  },
   methods: {
     ...mapMutations(['SET_RESULT_USER']),
+    ...mapActions(['SAVE_RESULT']),
     calculateA (id, value) {
-      this.user.notasA[id] = value
+      this.result.puntosA[id] = value
     },
     calculateB (id, value) {
-      this.user.notasB[id] = value
+      this.result.puntosB[id] = value
     },
-    getResult () {
+    isValidToEvaluate () {
+      return this.result.puntosA.length === 21 && this.result.puntosB.length === 21
+    },
+    async getResult () {
+      // const isValid = this.isValidToEvaluate()
+      // if (!isValid) {
+      //   window.swal('Preguntas Incompletas', 'Porfavor, responda todas las preguntas.', 'error')
+      //   return
+      // }
       let successA = 0
-      this.user.notasA.forEach(element => {
+      this.result.puntosA.forEach(element => {
         successA = successA + element
       })
 
       let finalA
       switch (true) {
         case (successA < 7):
-          finalA = `CONOCIMIENTO BAJO, nota: ${successA}`
+          finalA = 'Conocimiento Bajo'
           break
         case (successA < 15):
-          finalA = `CONOCIMIENTO MEDIO, nota: ${successA}`
+          finalA = 'Conocimiento Medio'
           break
-        case (successA < 20):
-          finalA = `CONOCIMIENTO ALTO, nota: ${successA}`
+        case (successA <= 20):
+          finalA = 'Conocimiento Alto'
           break
       }
+      const notaA = successA
 
-      this.user.finalA = finalA
+      this.result.finalA = finalA
+      this.result.notaA = notaA
 
       let successB = 0
-      this.user.notasB.forEach(element => {
+      this.result.puntosB.forEach(element => {
         successB = successB + element
       })
 
       let finalB
       switch (true) {
         case (successB < 11):
-          finalB = `PRACTICA INCORRECTA, nota: ${successB}`
+          finalB = 'Practica Incorrecta'
           break
-        case (successB < 20):
-          finalB = `PRACTICA CORRECTA, nota: ${successB}`
+        case (successB <= 20):
+          finalB = 'Practica Correcta'
           break
       }
+      const notaB = successB
 
-      this.user.finalB = finalB
+      this.result.finalB = finalB
+      this.result.notaB = notaB
 
-      this.$store.commit('SET_RESULT_USER', this.user)
+      this.$store.commit('SET_RESULT_USER', this.result)
+      const save = {
+        user: this.GET_USER.user,
+        name: this.GET_USER.name,
+        age: this.GET_USER.age,
+        grade: this.GET_USER.grade,
+        gender: this.GET_USER.gender,
+        origen: this.GET_USER.origen,
+        finalA: this.result.finalA,
+        finalB: this.result.finalB,
+        notaA: this.result.notaA,
+        notaB: this.result.notaB
+      }
+      await this.$store.dispatch('SAVE_RESULT', save)
       this.$router.push('/result')
     }
   }
 
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
