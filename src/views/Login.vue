@@ -1,7 +1,7 @@
 <template>
   <div>
     <form>
-      <h1>Bienvenido</h1>
+      <h1>Bienvenido Rodrigo XD</h1>
       <fieldset>
         <label for="name">Usuario:</label>
         <input type="text" name="user_name" v-model="user">
