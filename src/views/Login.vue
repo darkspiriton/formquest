@@ -51,7 +51,7 @@ export default {
           this.$store.commit('SET_LOGIN_USER')
           this.$store.commit('SET_SUPER_ADMIN', isAdmin)
           this.$store.commit('SET_USER_DATA', userData)
-          this.$router.push('/dashboard')
+          this.$router.push('/consent')
         } else {
           this.hasError = true
           this.textError = 'Contraseña invalida'
