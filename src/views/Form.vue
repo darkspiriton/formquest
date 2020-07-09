@@ -75,6 +75,12 @@ export default {
   data () {
     return {
       result: {
+        puntosATest: [],
+        puntosBTest: [],
+        finalATest: null,
+        finalBTest: null,
+        notaATest: null,
+        notaBTest: null,
         puntosA: [],
         puntosB: [],
         finalA: null,
@@ -750,7 +756,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      test: this.$route.params.test
     }
   },
   computed: {
@@ -816,6 +823,10 @@ export default {
       this.result.finalB = finalB
       this.result.notaB = notaB
 
+      this.result.finalATest = this.test.finalA
+      this.result.finalBTest = this.test.finalB
+      this.result.notaATest = this.test.notaA
+      this.result.notaBTest = this.test.notaB
       this.$store.commit('SET_RESULT_USER', this.result)
       const save = {
         user: this.GET_USER.user,
@@ -827,7 +838,11 @@ export default {
         finalA: this.result.finalA,
         finalB: this.result.finalB,
         notaA: this.result.notaA,
-        notaB: this.result.notaB
+        notaB: this.result.notaB,
+        finalATest: this.result.finalATest,
+        finalBTest: this.result.finalBTest,
+        notaATest: this.result.notaATest,
+        notaBTest: this.result.notaBTest
       }
       await this.$store.dispatch('SAVE_RESULT', save)
       this.isLoading = false
