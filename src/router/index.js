@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 
 import Login from '../views/Login.vue'
 import CreateUser from '../views/CreateUser.vue'
-import Dashboard from '../views/Dashboard.vue'
+import Video from '../views/Video.vue'
 import Form from '../views/Form.vue'
+import FormTest from '../views/FormTest.vue'
+import Consent from '../views/Consent.vue'
 import Result from '../views/Result.vue'
 import List from '../views/List.vue'
 
@@ -17,9 +19,9 @@ const routes = [
     component: Login
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
+    path: '/video',
+    name: 'Video',
+    component: Video,
     meta: {
       requiresAuth: true
     }
@@ -28,6 +30,22 @@ const routes = [
     path: '/form',
     name: 'Form',
     component: Form,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/consent',
+    name: 'Form',
+    component: Consent,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/formTest',
+    name: 'Form',
+    component: FormTest,
     meta: {
       requiresAuth: true
     }
