@@ -88,7 +88,11 @@ const store = new Vuex.Store({
           finalA: result.finalA,
           finalB: result.finalB,
           notaA: result.notaA,
-          notaB: result.notaB
+          notaB: result.notaB,
+          finalATest: result.finalATest,
+          finalBTest: result.finalBTest,
+          notaATest: result.notaATest,
+          notaBTest: result.notaBTest
         })
       } catch (e) {
         console.log(e)
