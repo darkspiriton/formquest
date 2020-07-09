@@ -10,8 +10,10 @@
                   <th class="column1">Nombre</th>
                   <th class="column2">Edad</th>
                   <th class="column3">Grado</th>
-                  <th class="column4">Genero</th>
-                  <th class="column5">Origen</th>
+                  <!-- <th class="column4">Genero</th> -->
+                  <!-- <th class="column5">Origen</th> -->
+                  <th class="column4">ConocimientoTest</th>
+                  <th class="column5">PracticaTest</th>
                   <th class="column6">Conocimiento</th>
                   <th class="column7">Practica</th>
                 </tr>
@@ -21,8 +23,10 @@
                   <td class="column1">{{result.name.toLowerCase()}}</td>
                   <td class="column2">{{result.age}} años</td>
                   <td class="column3">{{result.grade}}</td>
-                  <td class="column4">{{result.gender}}</td>
-                  <td class="column5">{{result.origen}}</td>
+                  <!-- <td class="column4">{{result.gender}}</td> -->
+                  <!-- <td class="column5">{{result.origen}}</td> -->
+                  <td class="column4">{{result.finalATest}}</td>
+                  <td class="column5">{{result.finalBTest}}</td>
                   <td class="column6">{{result.finalA.toLowerCase()}}</td>
                   <td class="column7">{{result.finalB.toLowerCase()}}</td>
                 </tr>
