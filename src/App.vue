@@ -3,7 +3,7 @@
     <div class="menu">
       <router-link v-if="!isLogged" to="/">Ingresar</router-link>
       <router-link v-if="!isLogged" to="/create">Crear Usuario 📖</router-link>
-      <router-link v-if="isLogged" to="/dashboard">Inicio</router-link>
+      <router-link v-if="isLogged" to="/consent">Inicio</router-link>
       <router-link v-if="isLogged && GET_USER_ADMIN" to="/list">Reporte</router-link>
       <a href="#" v-if="isLogged" @click.prevent="logout">Salir 💣 {{GET_USER.user}}</a>
     </div>
