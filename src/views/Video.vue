@@ -15,7 +15,8 @@
 export default {
   methods: {
     getForm () {
-      this.$router.push('/form')
+      const test = this.$route.params.test
+      this.$router.push({ name: 'Form', params: { test } })
     }
   }
 }
@@ -25,7 +26,7 @@ export default {
 .intro {
   p {
     text-align: center;
-    font-size: 20px;;
+    font-size: 20px;
   }
 }
 .video {
