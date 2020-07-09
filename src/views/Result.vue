@@ -28,6 +28,18 @@
       </select>
 
       <div class="group_result">
+        <label for="age">TEST Resultado de conocimiento conceptual de la tuberculosis:</label>
+        <div class="result" :class="getClassNotaATest()">
+          {{GET_USER_RESULT.finalATest}} - {{GET_USER_RESULT.notaATest}} puntos
+        </div>
+
+        <label for="age">TEST Resultado de conocimiento practico de la tuberculosis:</label>
+        <div class="result" :class="getClassNotaBTest()">
+          {{GET_USER_RESULT.finalBTest}} - {{GET_USER_RESULT.notaBTest}} puntos
+        </div>
+      </div>
+
+      <div class="group_result">
         <label for="age">Resultado de conocimiento conceptual de la tuberculosis:</label>
         <div class="result" :class="getClassNotaA()">
           {{GET_USER_RESULT.finalA}} - {{GET_USER_RESULT.notaA}} puntos
@@ -98,11 +110,29 @@ export default {
           return 'green'
       }
     },
+    getClassNotaATest () {
+      switch (true) {
+        case (this.GET_USER_RESULT.notaATest < 7):
+          return 'red'
+        case (this.GET_USER_RESULT.notaATest < 15):
+          return 'yellow'
+        case (this.GET_USER_RESULT.notaATest <= 20):
+          return 'green'
+      }
+    },
     getClassNotaB () {
       switch (true) {
         case (this.GET_USER_RESULT.notaB < 11):
           return 'red'
         case (this.GET_USER_RESULT.notaB <= 20):
+          return 'green'
+      }
+    },
+    getClassNotaBTest () {
+      switch (true) {
+        case (this.GET_USER_RESULT.notaBTest < 11):
+          return 'red'
+        case (this.GET_USER_RESULT.notaBTest <= 20):
           return 'green'
       }
     }
