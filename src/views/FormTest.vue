@@ -1,7 +1,7 @@
 <template>
     <form>
 
-    <h1>PRE-TEST</h1>
+    <h1>PRE TEST</h1>
     <h1>“Fortaleciendo mi conocimiento, prevengo la tuberculosis”</h1>
 
     <fieldset>
@@ -65,7 +65,7 @@
       </ol>
     </fieldset>
 
-    <button @click.prevent="getResult()" :disabled="isLoading">Calificar PRE-TEST</button>
+    <button @click.prevent="getResult()" :disabled="isLoading">CALIFICAR PRE TEST</button>
   </form>
 </template>
 

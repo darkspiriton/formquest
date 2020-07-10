@@ -1,8 +1,8 @@
 <template>
   <div>
     <form>
-      <h1>Resultado</h1>
-      <fieldset>
+      <h1>Gracias por completar los formularios</h1>
+      <!-- <fieldset>
       <label for="name">Nombres y Apellidos del estudiante:</label>
       <input type="text" v-model="GET_USER.name" name="user_name" disabled>
 
@@ -51,12 +51,26 @@
         </div>
       </div>
 
-    </fieldset>
+    </fieldset> -->
+    <div class="banner">
+      <img src="../assets/img2.png" alt="">
+      <img src="../assets/img1.png" alt="">
+    </div>
+    <!-- <button @click.prevent="getResult()" :disabled="isLoading">CONTINUAR</button> -->
     </form>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.banner {
+  display: flex;
+  flex-direction: column;
+  img {
+    width: auto;
+    align-self: center;
+    margin-bottom: 20px;
+  }
+}
 .group_result {
   display: flex;
   flex-direction: column;

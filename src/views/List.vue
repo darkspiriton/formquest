@@ -7,15 +7,15 @@
             <table>
               <thead>
                 <tr class="table100-head">
-                  <th class="column1">Nombre</th>
-                  <th class="column2">Edad</th>
-                  <th class="column3">Grado</th>
-                  <!-- <th class="column4">Genero</th> -->
-                  <!-- <th class="column5">Origen</th> -->
-                  <th class="column4">ConocimientoTest</th>
-                  <th class="column5">PracticaTest</th>
-                  <th class="column6">Conocimiento</th>
-                  <th class="column7">Practica</th>
+                  <th class="column1">NOMBRE</th>
+                  <th class="column2">EDAD</th>
+                  <th class="column3">GRADO</th>
+                  <th class="column4">GENERO</th>
+                  <th class="column5">ORIGEN</th>
+                  <th class="column6">PRECONOCIM</th>
+                  <th class="column7">PREPRACT</th>
+                  <th class="column8">POSTCONOCIM</th>
+                  <th class="column9">POSTPRACT</th>
                 </tr>
               </thead>
               <tbody>
@@ -23,12 +23,12 @@
                   <td class="column1">{{result.name.toLowerCase()}}</td>
                   <td class="column2">{{result.age}} años</td>
                   <td class="column3">{{result.grade}}</td>
-                  <!-- <td class="column4">{{result.gender}}</td> -->
-                  <!-- <td class="column5">{{result.origen}}</td> -->
-                  <td class="column4">{{result.finalATest}}</td>
-                  <td class="column5">{{result.finalBTest}}</td>
-                  <td class="column6">{{result.finalA.toLowerCase()}}</td>
-                  <td class="column7">{{result.finalB.toLowerCase()}}</td>
+                  <td class="column4">{{result.gender}}</td>
+                  <td class="column5">{{result.origen}}</td>
+                  <td class="column6">{{result.finalATest}} {{result.notaATest}}</td>
+                  <td class="column7">{{result.finalBTest}} {{result.notaBTest}}</td>
+                  <td class="column8">{{result.finalA}} {{result.notaA}}</td>
+                  <td class="column9">{{result.finalB}} {{result.notaB}}</td>
                 </tr>
               </tbody>
             </table>
@@ -98,7 +98,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 33px 30px;
+  // padding: 33px 30px;
 }
 
 .wrap-table100 {
@@ -127,6 +127,9 @@ table thead tr {
 }
 table tbody tr {
   height: 50px;
+  font-size: 11px;
+  text-transform: lowercase;
+  // display: inline-block;
 }
 table tbody tr:last-child {
   border: 0;
@@ -146,7 +149,7 @@ table td.r, table th.r {
 
 .table100-head th{
   font-family: "Nunito", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   color: #fff;
   line-height: 1.2;
   font-weight: unset;

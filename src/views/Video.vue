@@ -7,7 +7,7 @@
       <div class="video">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/RaSJUcv78Yk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <button @click.prevent="getForm()">Ingresar a Cuestionario</button>
+      <button @click.prevent="getForm()">INGRESAR A   POST TEST</button>
     </form>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
     <form>
 
+    <h1>POST TEST</h1>
     <h1>“Fortaleciendo mi conocimiento, prevengo la tuberculosis”</h1>
 
     <fieldset>
@@ -64,7 +65,7 @@
       </ol>
     </fieldset>
 
-    <button @click.prevent="getResult()" :disabled="isLoading">Calificar</button>
+    <button @click.prevent="getResult()" :disabled="isLoading">CALIFICAR POST TEST</button>
   </form>
 </template>
 

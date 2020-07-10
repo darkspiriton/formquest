@@ -11,27 +11,18 @@
       </div>
 
       <div>
-        <label for="name">Yo (nombre el apoderado) :</label>
-        <input type="text" name="user_name">
-      </div>
-
-      <div>
-        <h3>Marcar con un (✔️) si acepta o no acepta</h3>
+        <!-- <h3>Marcar con un (✔️) si acepta o no acepta</h3> -->
 
         <div class='row'>
           <input id="one" type="radio" name="rgroup" value="MV/titleTypeMV.cfm" />
           <label for="one" class='radio' tabindex='1'></label>
-          <label>He ledio el contenido de este documento de CONSENTIMIENTO INFORMADO y acepto que mi menor hijo (a)</label>
+          <label>He leído el contenido de este documento  CONSENTIMIENTO INFORMADO y acepto que mi menor hijo (a) participe en el programa educativo.</label>
         </div>
 
         <div class='row'>
           <input id="two" type="radio" name="rgroup" value="MV/titleTypeMV.cfm" />
           <label for="two" class='radio' tabindex='1'></label>
-          <label>No acepto que mi menor hijo(a)</label>
-        </div>
-
-        <div>
-          <label>{{date}}</label>
+          <label>No acepto que mi menor hijo(a) participe en el programa educativo.</label>
         </div>
 
       </div>
@@ -68,6 +59,7 @@ form {
   flex-direction: column;
   .text {
     margin-bottom: 30px;
+    text-align: center;
   }
 }
 
