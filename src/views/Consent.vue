@@ -14,13 +14,13 @@
         <!-- <h3>Marcar con un (✔️) si acepta o no acepta</h3> -->
 
         <div class='row'>
-          <input id="one" type="radio" name="rgroup" value="MV/titleTypeMV.cfm" />
+          <input id="one" type="radio" name="rgroup" :model="consent" @click="setConsent(1)" />
           <label for="one" class='radio' tabindex='1'></label>
           <label>He leído el contenido de este documento  CONSENTIMIENTO INFORMADO y acepto que mi menor hijo (a) participe en el programa educativo.</label>
         </div>
 
         <div class='row'>
-          <input id="two" type="radio" name="rgroup" value="MV/titleTypeMV.cfm" />
+          <input id="two" type="radio" name="rgroup" :model="consent" @click="setConsent(0)" />
           <label for="two" class='radio' tabindex='1'></label>
           <label>No acepto que mi menor hijo(a) participe en el programa educativo.</label>
         </div>
@@ -29,7 +29,7 @@
 
     </fieldset>
 
-    <button @click="validateConsent()">ACEPTO</button>
+    <button @click.prevent="validateConsent()">ACEPTO</button>
   </form>
 </template>
 
@@ -39,12 +39,20 @@ import moment from 'moment'
 export default {
   data () {
     return {
-      date: moment().format('DD-MM-Y')
+      date: moment().format('DD-MM-Y'),
+      consent: 0
     }
   },
   methods: {
     validateConsent () {
-      this.$router.push('formTest')
+      if (this.consent === 1) {
+        this.$router.push('formTest')
+      } else {
+        window.swal('Consentimiento Informado', 'Porfavor, acepte el consentimiento para continuar.', 'error')
+      }
+    },
+    setConsent (val) {
+      this.consent = val
     }
   },
   mixins: [loginData]
