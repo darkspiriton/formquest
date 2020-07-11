@@ -29,7 +29,7 @@
 
     </fieldset>
 
-    <button @click.prevent="validateConsent()">ACEPTO</button>
+    <button @click.prevent="validateConsent()">CONTINUAR</button>
   </form>
 </template>
 
